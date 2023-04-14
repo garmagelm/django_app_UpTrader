@@ -1,0 +1,11 @@
+{% load menu_tags %}
+<ul>
+{% for item in menu_items %}
+    <li>
+        <a href="{{ item.get_url }}">{{ item.title }}</a>
+        {% if item.children.exists %}
+            {% draw_menu item.menu_name %}
+        {% endif %}
+    </li>
+{% endfor %}
+</ul>
